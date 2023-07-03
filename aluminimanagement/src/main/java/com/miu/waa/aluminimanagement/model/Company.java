@@ -5,10 +5,13 @@ import lombok.Data;
 
 @Entity
 @Data
-public class Department {
+public class Company {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id", nullable = false)
-    private Long id;
+    private int id;
     private String name;
+    @OneToOne(cascade = CascadeType.ALL)
+    private Address address;
+
+    private boolean isDeleted=false;
 }

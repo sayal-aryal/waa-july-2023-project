@@ -13,16 +13,12 @@ import java.time.Instant;
 public class Comment {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id", nullable = false)
-    private Long id;
-    private String content;
-
-    @CreatedDate
-    private Instant createdDate;
-    @CreatedBy
-    private String createdBy;
-
-    @ManyToOne
+    private int id;
+    private String comment;
+    @ManyToOne(fetch = FetchType.LAZY,cascade = CascadeType.MERGE)
     private Student student;
+    @ManyToOne(fetch = FetchType.LAZY,cascade = CascadeType.MERGE)
+    private Faculty faculty;
+    private boolean isDeleted = false;
 }
 
