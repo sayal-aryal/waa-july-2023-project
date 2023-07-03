@@ -23,16 +23,18 @@ public class CommentController {
     List<CommentDto> findCommentByStudent_Id(@PathVariable int studentId){
         return commentService.findCommentByStudent_Id(studentId);
     }
-    @GetMapping("/{id")
+    @GetMapping("/{id}")
     public CommentDto getComment(@PathVariable int id){
         return commentService.findById(id);
     }
-    @PostMapping()
+    @PostMapping
     public CommentDto addComment(@RequestBody CommentDto comment){
         return commentService.addComment(comment);
     }
+
+    @PutMapping("/{id}")
     public CommentDto updateComment(@PathVariable int id, @RequestBody CommentDto comment){
-        return commentService.updateComment(id, comment);
+        return commentService.updateComment(id,comment);
     }
     @DeleteMapping("/{id}")
     public void deleteComment(@PathVariable int id){
